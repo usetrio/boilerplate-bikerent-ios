@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "whiteHeartIcon.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
