@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class ImageLoader {
-    
+
     public static let publicCache = ImageLoader()
     private var loadedImages = [URL: UIImage]()
     private var runningRequests = [UUID: URLSessionDataTask]()
@@ -24,7 +24,7 @@ class ImageLoader {
       // 2
       let uuid = UUID()
 
-      let task = URLSession.shared.dataTask(with: url) { data, response, error in
+      let task = URLSession.shared.dataTask(with: url) { data, _, error in
         // 3
         defer {self.runningRequests.removeValue(forKey: uuid) }
 
@@ -55,7 +55,7 @@ class ImageLoader {
       runningRequests[uuid] = task
       return uuid
     }
-    
+
     func cancelLoad(_ uuid: UUID) {
       runningRequests[uuid]?.cancel()
       runningRequests.removeValue(forKey: uuid)

@@ -22,7 +22,7 @@ class BikeTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
+
         bikeTypeLabel.layer.cornerRadius = 20
         containerView.layer.cornerRadius = 20
         bikeTypeContainer.layer.cornerRadius = 13
@@ -32,7 +32,7 @@ class BikeTableViewCell: UITableViewCell {
         containerView.layer.borderWidth = 1
         lineSeparatorView.backgroundColor = .appLightGray
     }
-    
+
     func configure(with bike: Bike) {
         bikeNameLabel.text = bike.name
         bikeTypeLabel.text = bike.type

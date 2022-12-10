@@ -12,7 +12,7 @@ class MainViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var headerView: UIView!
-    
+
     private var mainViewModel: MainViewModel!
     private let imageLoader = ImageLoader()
 
@@ -26,7 +26,7 @@ class MainViewController: UIViewController {
 
         setupViewModel()
     }
-    
+
     private func setupViewModel() {
         self.mainViewModel = MainViewModel()
         self.mainViewModel.fetchBikes()
@@ -44,28 +44,26 @@ class MainViewController: UIViewController {
             }
         }
     }
-    
+
 }
 
-
 extension MainViewController: UITableViewDelegate {
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "goToDetailVC", sender: self)
     }
 }
 
 extension MainViewController: UITableViewDataSource {
-    
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.mainViewModel.bikes.count
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: BikeTableViewCell = tableView.dequeueReusableCell(withIdentifier: "BikeTableViewCell", for: indexPath) as! BikeTableViewCell
+        let cell: BikeTableViewCell = tableView.dequeueReusableCell(withIdentifier: "BikeTableViewCell", for: indexPath) as! BikeTableViewCell // swiftlint:disable:this force_cast
         let bike = mainViewModel.bikes[indexPath.row]
 
         guard let firstImage = bike.imageUrls.first,

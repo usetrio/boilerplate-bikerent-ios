@@ -10,8 +10,8 @@ import UIKit
 import MapKit
 
 class BikeDetailViewController: UIViewController {
-    
-    //MARK: IBoutlets
+
+    // MARK: IBoutlets
 
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var pageControl: UIPageControl!
@@ -37,7 +37,7 @@ class BikeDetailViewController: UIViewController {
 
     var bike: Bike?
 
-    //MARK: Lifecycle
+    // MARK: Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +47,7 @@ class BikeDetailViewController: UIViewController {
         updateUI()
         configureMapView()
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
@@ -63,8 +63,8 @@ class BikeDetailViewController: UIViewController {
             self.view.backgroundColor = .clear
         }
     }
-    
-    //MARK: Config
+
+    // MARK: Config
 
     private func configureUI() {
         stackView.layer.borderWidth = 1
@@ -92,10 +92,10 @@ class BikeDetailViewController: UIViewController {
         scrollView.backgroundColor = .mainBlue
         mapView.layer.cornerRadius = 20
     }
-    
+
     private func updateUI() {
         guard let bike = bike else { return }
-        
+
         self.bodySizeLabel.text = "\(bike.bodySize)"
         self.maxLoadLabel.text = "\(bike.maxLoad)"
         self.ratingLabel.text = "\(bike.ratings)"
@@ -109,17 +109,17 @@ class BikeDetailViewController: UIViewController {
     private func configureCollectionView() {
         collectionView.register(UINib(nibName: "BikeDetailCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "BikeDetailCollectionViewCell")
     }
-    
+
     private func configureMapView() {
         let initialLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
         mapView.centerToLocation(initialLocation)
     }
 }
 
-//MARK: Extensions
+// MARK: Extensions
 
 extension BikeDetailViewController: UICollectionViewDelegate {
-    
+
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         pageControl.currentPage = Int(
             (collectionView.contentOffset.x / collectionView.frame.width)
@@ -131,7 +131,7 @@ extension BikeDetailViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return bike?.imageUrls.count ?? 1
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BikeDetailCollectionViewCell", for: indexPath) as? BikeDetailCollectionViewCell {
 

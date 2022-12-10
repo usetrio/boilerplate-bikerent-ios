@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -260,6 +260,7 @@
 				442F5BF228D4DD170005B46C /* Frameworks */,
 				442F5BF328D4DD170005B46C /* Resources */,
 				604B07B2674EC02B704AAA47 /* [CP] Embed Pods Frameworks */,
+				97542A99294405700079C89A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -333,7 +334,7 @@
 				};
 			};
 			buildConfigurationList = 442F5BF028D4DD170005B46C /* Build configuration list for PBXProject "BikeRental" */;
-			compatibilityVersion = "Xcode 14.0";
+			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -437,6 +438,23 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BikeRental/Pods-BikeRental-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		97542A99294405700079C89A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		CBF27A1BE90CE5A4F9AC1C48 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
