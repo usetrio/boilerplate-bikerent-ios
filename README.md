@@ -12,6 +12,11 @@ $ pod install
 
 Finally, open `BikeRental.xcworkspace` file.
 
+**if you have any issues with SwiftLint, please install it locally**
+```
+$ brew install swiftlint
+```
+
 ## Description
 The app displasys a list of bikes that are available for rent, with daily and weekly rates. 
 The endpoint using to retrieve the list of bikes is: 
