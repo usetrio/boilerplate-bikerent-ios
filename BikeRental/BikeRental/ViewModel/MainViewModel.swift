@@ -8,14 +8,14 @@
 import Foundation
 
 class MainViewModel {
-    
+
     private(set) var bikes: [Bike] = [] {
         didSet {
             self.bikeListFetched()
         }
     }
 
-    var bikeListFetched : (() -> ()) = {}
+    var bikeListFetched: (() -> Void) = {}
 
     func fetchBikes() {
         NetworkManager.fetchBikes { result in

@@ -10,7 +10,6 @@ import UIKit
 class BikeDetailCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var bikeImageView: UIImageView!
-    
     var onReuse: () -> Void = {}
 
     override func awakeFromNib() {
@@ -18,15 +17,15 @@ class BikeDetailCollectionViewCell: UICollectionViewCell {
 
         backgroundColor = .white
     }
-    
+
     func configure(with image: UIImage) {
         self.bikeImageView.image = image
     }
-    
+
     override func prepareForReuse() {
-      super.prepareForReuse()
-      onReuse()
-      bikeImageView.image = nil
+        super.prepareForReuse()
+        onReuse()
+        bikeImageView.image = nil
     }
 
 }

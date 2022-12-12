@@ -8,6 +8,7 @@ target 'BikeRental' do
   # Pods for BikeRental
 
 pod 'Alamofire'
+pod 'SwiftLint'
 
   target 'BikeRentalTests' do
     inherit! :search_paths
