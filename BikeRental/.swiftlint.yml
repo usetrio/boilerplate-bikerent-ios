@@ -1,5 +1,5 @@
 disabled_rules: # rule identifiers to exclude from running
-  - variable_name
+  - identifier_name
   - nesting
   - function_parameter_count
 opt_in_rules: # some rules are only opt-in
@@ -26,6 +26,13 @@ force_try:
 type_body_length:
   - 300 # warning
   - 400 # error
+
+line_length:
+  warning: 120
+  ignores_function_declarations: true
+  ignores_comments: true
+  ignores_interpolated_strings: true
+  ignores_urls: true
 
 # or they can set both explicitly
 file_length:

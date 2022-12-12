@@ -22,7 +22,8 @@ class MainViewController: UIViewController {
         self.headerView.layer.cornerRadius = 20
         self.headerView.backgroundColor = .mainBlue
         self.tableView.delegate = self
-        self.tableView.register(UINib(nibName: "BikeTableViewCell", bundle: .main), forCellReuseIdentifier: "BikeTableViewCell")
+        self.tableView.register(UINib(nibName: "BikeTableViewCell", bundle: .main),
+                                forCellReuseIdentifier: "BikeTableViewCell")
 
         setupViewModel()
     }
@@ -63,7 +64,9 @@ extension MainViewController: UITableViewDataSource {
         return self.mainViewModel.bikes.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: BikeTableViewCell = tableView.dequeueReusableCell(withIdentifier: "BikeTableViewCell", for: indexPath) as! BikeTableViewCell // swiftlint:disable:this force_cast
+        let cell: BikeTableViewCell =
+        tableView.dequeueReusableCell(withIdentifier: "BikeTableViewCell", for: indexPath)
+        as! BikeTableViewCell // swiftlint:disable:this force_cast
         let bike = mainViewModel.bikes[indexPath.row]
 
         guard let firstImage = bike.imageUrls.first,

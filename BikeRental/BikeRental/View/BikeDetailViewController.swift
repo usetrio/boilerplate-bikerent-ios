@@ -107,7 +107,8 @@ class BikeDetailViewController: UIViewController {
     }
 
     private func configureCollectionView() {
-        collectionView.register(UINib(nibName: "BikeDetailCollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "BikeDetailCollectionViewCell")
+        collectionView.register(UINib(nibName: "BikeDetailCollectionViewCell", bundle: .main),
+                                forCellWithReuseIdentifier: "BikeDetailCollectionViewCell")
     }
 
     private func configureMapView() {
@@ -133,9 +134,12 @@ extension BikeDetailViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BikeDetailCollectionViewCell", for: indexPath) as? BikeDetailCollectionViewCell {
+        if let cell =
+            collectionView.dequeueReusableCell(withReuseIdentifier: "BikeDetailCollectionViewCell", for: indexPath)
+            as? BikeDetailCollectionViewCell {
 
-            guard let imageURL = bike?.imageUrls[indexPath.row], let imageURL = URL(string: imageURL) else { return cell }
+            guard let imageURL = bike?.imageUrls[indexPath.row],
+                  let imageURL = URL(string: imageURL) else { return cell }
 
             let token = ImageLoader.publicCache.loadImage(imageURL) { result in
                 do {
