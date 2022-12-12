@@ -70,20 +70,20 @@ extension MainViewController: UITableViewDataSource {
               let imageURL = URL(string: firstImage) else { return cell }
 
         let token = ImageLoader.publicCache.loadImage(imageURL) { result in
-          do {
-            let image = try result.get()
-            DispatchQueue.main.async {
-              cell.bikeImageView.image = image
+            do {
+                let image = try result.get()
+                DispatchQueue.main.async {
+                    cell.bikeImageView.image = image
+                }
+            } catch {
+                print(error)
             }
-          } catch {
-            print(error)
-          }
         }
 
         cell.onReuse = {
-          if let token = token {
-            ImageLoader.publicCache.cancelLoad(token)
-          }
+            if let token = token {
+                ImageLoader.publicCache.cancelLoad(token)
+            }
         }
 
         cell.configure(with: bike)

@@ -149,9 +149,9 @@ extension BikeDetailViewController: UICollectionViewDataSource {
             }
 
             cell.onReuse = {
-              if let token = token {
-                ImageLoader.publicCache.cancelLoad(token)
-              }
+                if let token = token {
+                    ImageLoader.publicCache.cancelLoad(token)
+                }
             }
 
             return cell
@@ -168,5 +168,5 @@ private extension MKMapView {
             latitudinalMeters: regionRadius,
             longitudinalMeters: regionRadius)
         setRegion(coordinateRegion, animated: true)
-  }
+    }
 }

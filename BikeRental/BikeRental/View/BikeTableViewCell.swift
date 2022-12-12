@@ -40,8 +40,8 @@ class BikeTableViewCell: UITableViewCell {
     }
 
     override func prepareForReuse() {
-      super.prepareForReuse()
-      onReuse()
-      bikeImageView.image = nil
+        super.prepareForReuse()
+        onReuse()
+        bikeImageView.image = nil
     }
 }

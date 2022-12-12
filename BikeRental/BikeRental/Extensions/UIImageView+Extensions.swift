@@ -17,7 +17,7 @@ extension UIImageView {
         DispatchQueue.main.async { [weak self] in
             if let imageData = try? Data(contentsOf: url) {
                 if let loadedImage = UIImage(data: imageData) {
-                        self?.image = loadedImage
+                    self?.image = loadedImage
                 }
             }
         }
