@@ -16,7 +16,7 @@ class NetworkManager {
             "Accept": "application/json"
         ]
 
-        AF.request(Constants.bikeListURL, headers: headers).responseJSON { response in
+        AF.request(Constants.bikeListURL, headers: headers).responseDecodable(of: [Bike].self) { (response) in
             switch response.result {
             case .success:
                 guard let data = response.data else { return }
